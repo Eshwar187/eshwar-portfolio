@@ -1,1 +1,269 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  /* Obsidian & Bronze-Gold Theme Tokens */
+  --bg-primary: #030305;
+  --bg-secondary: #08080c;
+  --bg-card: rgba(255, 255, 255, 0.015);
+  --color-border: rgba(255, 255, 255, 0.04);
+  --color-border-dark: rgba(255, 255, 255, 0.1);
+  
+  /* Text */
+  --color-text-primary: #fafafc;
+  --color-text-secondary: #9a9996;
+  --color-text-muted: #57575c;
+  
+  /* Bronze-Gold & Silver Accents */
+  --color-accent: #c5a880;
+  --color-accent-dim: rgba(197, 168, 128, 0.07);
+  --color-silver: #e2e2e5;
+  --color-bronze-light: #ebd8be;
+
+  /* Typography */
+  --font-display: 'Outfit', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+
+  /* Easing */
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+}
+
+/* Giant Background Animated Blur Nebulas */
+.bg-orb-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.blur-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.orb-1 {
+  background: radial-gradient(circle, var(--color-accent) 0%, rgba(197,168,128,0) 70%);
+  width: 90vw;
+  height: 90vw;
+  top: -20vw;
+  left: -20vw;
+  animation: floatOrb1Animation 25s infinite alternate ease-in-out;
+}
+
+.orb-2 {
+  background: radial-gradient(circle, var(--color-silver) 0%, rgba(226,226,229,0) 70%);
+  width: 80vw;
+  height: 80vw;
+  bottom: -20vw;
+  right: -20vw;
+  animation: floatOrb2Animation 30s infinite alternate ease-in-out;
+}
+
+.orb-3 {
+  background: radial-gradient(circle, var(--color-accent) 0%, rgba(197,168,128,0) 70%);
+  width: 85vw;
+  height: 85vw;
+  top: 15vh;
+  left: 20vw;
+  animation: floatOrb3Animation 35s infinite alternate ease-in-out;
+}
+
+@keyframes floatOrb1Animation {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(10vw, 8vh) scale(1.1); }
+}
+
+@keyframes floatOrb2Animation {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-10vw, -10vh) scale(1.08); }
+}
+
+@keyframes floatOrb3Animation {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-5vw, 8vh) scale(1.15); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Selection Highlight */
+::-selection {
+  background: var(--color-accent-dim);
+  color: var(--color-accent);
+}
+
+/* Hide default cursor on desktop when custom cursor is active */
+@media (min-width: 769px) and (pointer: fine) {
+  html, body, a, button, select, input, textarea, .editorial-btn, .project-card, .project-editorial-btn {
+    cursor: none !important;
+  }
+}
+
+/* Giant Typography Scale */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.95;
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: clamp(3.8rem, 11.5vw, 9rem);
+  letter-spacing: -2px;
+}
+
+h2 {
+  font-size: clamp(2.6rem, 7.5vw, 5rem);
+  letter-spacing: -2px;
+  line-height: 1.0;
+}
+
+h3 {
+  font-size: clamp(1.6rem, 3.8vw, 2.8rem);
+  letter-spacing: -1px;
+  line-height: 1.05;
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--color-text-secondary);
+}
+
+/* Layout Utilities */
+section {
+  position: relative;
+  padding: 160px 8% 140px 8%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Frosted Glass Button */
+.editorial-btn {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 14px 28px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.35s var(--ease-smooth);
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.editorial-btn:hover {
+  background: rgba(197, 168, 128, 0.06);
+  border-color: rgba(197, 168, 128, 0.45);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(197, 168, 128, 0.15), 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.editorial-btn:active {
+  transform: translateY(0);
+}
+
+.italic-serif {
+  font-style: italic;
+}
+
+.accent-color {
+  color: var(--color-accent);
+}
+
+/* Text Mask Reveal Classes */
+.reveal-mask {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+}
+
+.reveal-text {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: slideUpReveal 1.2s var(--ease-smooth) forwards;
+}
+
+@keyframes slideUpReveal {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* self-drawing border animations (glass-adapted color scheme) */
+.draw-border-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.draw-path {
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawBorderLine 2s var(--ease-smooth) forwards;
+}
+
+@keyframes drawBorderLine {
+  to { stroke-dashoffset: 0; }
+}

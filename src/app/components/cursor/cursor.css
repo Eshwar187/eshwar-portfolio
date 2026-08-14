@@ -1,0 +1,61 @@
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 12000;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(197, 168, 128, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 11999;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: transparent;
+  transition: width 0.4s var(--ease-smooth), height 0.4s var(--ease-smooth), background-color 0.4s var(--ease-smooth), border-color 0.4s var(--ease-smooth);
+}
+
+/* Elegant Hover bubble state */
+.cursor-ring.hovered {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(197, 168, 128, 0.08);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  font-size: 0.55rem;
+  letter-spacing: 1.5px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.cursor-dot.hovered {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-accent);
+}
+
+/* Hide on mobile/touch screens */
+@media (max-width: 768px), (pointer: coarse) {
+  .cursor-dot, .cursor-ring {
+    display: none !important;
+  }
+}

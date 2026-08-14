@@ -1,0 +1,1045 @@
+<div class="editorial-container">
+
+  <!-- SECTION 1: HERO PLAYGROUND -->
+  <section id="hero" class="hero-section">
+    <div class="hero-grid-bg"></div>
+    <canvas id="canvas-hero"></canvas>
+    
+    <!-- Hero High-Tech Telemetry Corner Pills -->
+    <div class="hero-corner-pill top-left">
+      <span class="pill-dot green"></span>
+      <span class="pill-label">FPS:</span>
+      <span class="pill-val">60.0 // STABLE</span>
+    </div>
+    <div class="hero-corner-pill top-right">
+      <span class="pill-dot gold"></span>
+      <span class="pill-label">LATENCY SLA:</span>
+      <span class="pill-val">&lt; 15ms P99</span>
+    </div>
+    <div class="hero-corner-pill bottom-left">
+      <span class="pill-dot blue"></span>
+      <span class="pill-label">INGRESS:</span>
+      <span class="pill-val">HTTP/3 // QUIC // gRPC</span>
+    </div>
+    <div class="hero-corner-pill bottom-right">
+      <span class="pill-dot purple"></span>
+      <span class="pill-label">UTC TIME:</span>
+      <span class="pill-val">{{ currentTimeStr() }}</span>
+    </div>
+
+
+
+    <div class="hero-layout-grid">
+      <!-- Left Column: Typography Statement -->
+      <div class="hero-left-col">
+        <div class="hero-tag" appGlitch>01 // SENIOR FULLSTACK ARCHITECT</div>
+        <h1 class="hero-title" appInteractiveText>ESHWAR.</h1>
+        <div class="hero-subtitle">Senior Fullstack Engineer & System Architect</div>
+        <p class="hero-tagline">
+          {{ developerBio() }}
+        </p>
+        
+        <div class="hero-actions">
+          <a href="#projects" class="hero-btn-primary" appMagnetic data-cursor-label="WORKS">
+            <span>Explore Systems</span>
+            <div class="btn-glow"></div>
+          </a>
+          <a href="#contact" class="hero-btn-secondary" appMagnetic data-cursor-label="CONTRACT">
+            <span>Initiate Contract</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: System Telemetry Panel -->
+      <div class="hero-right-col scroll-reveal">
+        <div class="telemetry-hud-card" (mousemove)="onCardMouseGlow($event)">
+          <div class="hover-glow-ring"></div>
+          <div class="card-scanner"></div>
+          <div class="telemetry-card-header">
+            <span class="hud-card-title">SYSTEM_TELEMETRY.EXE</span>
+            <span class="hud-status-badge">ACTIVE</span>
+          </div>
+          <div class="telemetry-card-body font-mono">
+            <div class="telemetry-log-row">
+              <span class="log-lbl">LOCAL TIME:</span>
+              <span class="log-val accent-gold">{{ currentTimeStr() }}</span>
+            </div>
+            <div class="telemetry-log-row">
+              <span class="log-lbl">INGRESS PROTOCOL:</span>
+              <span class="log-val accent-gold">HTTP/3 // QUIC // gRPC</span>
+            </div>
+            <div class="telemetry-log-row">
+              <span class="log-lbl">TARGET HOST:</span>
+              <span class="log-val">node_gateway.eshwar.dev</span>
+            </div>
+            <div class="telemetry-log-row">
+              <span class="log-lbl">SSL CERTIFICATE:</span>
+              <span class="log-val text-green">VALID // TLS 1.3 // SECURE</span>
+            </div>
+            <div class="telemetry-log-row">
+              <span class="log-lbl">ENGINE:</span>
+              <span class="log-val">V8 // WebGL // Canvas2D // GSAP</span>
+            </div>
+            
+            <div class="telemetry-wave-graph">
+              <svg viewBox="0 0 240 60" class="mini-wave-svg">
+                <path d="M 0,30 Q 15,10 30,30 T 60,30 T 90,30 T 120,30 T 150,30 T 180,30 T 210,30 T 240,30" fill="none" stroke="rgba(197, 168, 128, 0.25)" stroke-width="1.2" />
+                <path d="M 0,30 Q 15,45 30,30 T 60,30 T 90,30 T 120,30 T 150,30 T 180,30 T 210,30 T 240,30" fill="none" stroke="rgba(255, 255, 255, 0.06)" stroke-width="0.75" />
+              </svg>
+            </div>
+
+            <div class="telemetry-sys-stats">
+              <div class="sys-stat-item">
+                <span class="stat-lbl">LATENCY</span>
+                <span class="stat-val">14ms</span>
+              </div>
+              <div class="sys-stat-item">
+                <span class="stat-lbl">FPS</span>
+                <span class="stat-val accent-gold">60.0</span>
+              </div>
+              <div class="sys-stat-item">
+                <span class="stat-lbl">STATUS</span>
+                <span class="stat-val text-green">NOMINAL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-scroll-prompt">
+      <span class="scroll-arrow">↓</span>
+      <span class="scroll-text">Explore work</span>
+    </div>
+  </section>
+
+  <!-- SECTION 2: PROFILE (ASYMMETRIC BENTO SPLIT) -->
+  <section id="about" class="profile-section">
+    <div class="profile-bento-grid">
+      <!-- Left side: Bio and coordinates (Takes 2 cols on desktop) -->
+      <div class="profile-bio-card scroll-reveal" 
+           appParallax [speed]="0.04"
+           (mousemove)="onCardMouseGlow($event)">
+        <div class="hover-glow-ring"></div>
+        <div class="card-scanner"></div>
+        
+        <!-- Cyber Corner Brackets -->
+        <div class="corner-bracket t-l"></div>
+        <div class="corner-bracket t-r"></div>
+        <div class="corner-bracket b-l"></div>
+        <div class="corner-bracket b-r"></div>
+
+        <div class="bio-header">
+          <span class="bio-num" appDecodeText appGlitch>01 / OVERVIEW</span>
+          <h3 class="bio-title" appDecodeText [delay]="200">Senior Fullstack & System Architecture</h3>
+        </div>
+        <div class="bio-body">
+          <p>
+            I design and execute resilient, high-concurrency web systems across the full stack. Specializing in distributed microservices (Go, Node.js, Python), high-performance databases (PostgreSQL, Supabase, Redis), and reactive frontend architectures (Angular, Next.js, React), my engineering philosophy focuses on sub-10ms latencies, automated CI/CD pipelines, robust security, and AI integrations.
+          </p>
+          <div class="bio-tech-badges">
+            <span class="bio-tech-tag">GO / DISTRIBUTED SYS</span>
+            <span class="bio-tech-tag">TS / ANGULAR & NEXT</span>
+            <span class="bio-tech-tag">POSTGRES / REDIS CLUSTER</span>
+            <span class="bio-tech-tag">DOCKER / K8S / CI-CD</span>
+            <span class="bio-tech-tag">GEMINI AI INTEGRATIONS</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Middle side: Glass Orb Projection -->
+      <div class="profile-orb-card scroll-reveal" 
+           appParallax [speed]="-0.04"
+           (mousemove)="onCardMouseGlow($event)">
+        <div class="hover-glow-ring"></div>
+        <div class="card-scanner"></div>
+
+        <!-- Cyber Corner Brackets -->
+        <div class="corner-bracket t-l"></div>
+        <div class="corner-bracket t-r"></div>
+        <div class="corner-bracket b-l"></div>
+        <div class="corner-bracket b-r"></div>
+
+        <div class="orb-telemetry-tag">Interactive Physics System</div>
+        <div class="orb-wrapper">
+          <app-glass-orb></app-glass-orb>
+        </div>
+        <div class="orb-status" appDecodeText [delay]="300">Fibonacci Node Grid</div>
+      </div>
+
+      <!-- Right side: Bengaluru Locale Stats Card -->
+      <div class="profile-stats-card scroll-reveal" 
+           appParallax [speed]="0.02"
+           (mousemove)="onCardMouseGlow($event)">
+        <div class="hover-glow-ring"></div>
+        <div class="card-scanner"></div>
+
+        <!-- Cyber Corner Brackets -->
+        <div class="corner-bracket t-l"></div>
+        <div class="corner-bracket t-r"></div>
+        <div class="corner-bracket b-l"></div>
+        <div class="corner-bracket b-r"></div>
+
+        <div class="stats-card-header">
+          <span class="stats-card-num">02 // PERFORMANCE</span>
+          <h4 class="stats-card-title">Cluster Performance SLAs</h4>
+        </div>
+        
+        <div class="stats-card-body font-mono">
+          <div class="stat-block-row">
+            <span class="lbl">UPTIME:</span>
+            <span class="val accent-gold">99.999% Availability SLA</span>
+          </div>
+          <div class="stat-block-row">
+            <span class="lbl">THROUGHPUT:</span>
+            <span class="val accent-gold">50,000+ req/sec</span>
+          </div>
+          <div class="stat-block-row">
+            <span class="lbl">LATENCY:</span>
+            <span class="val">&lt; 15ms P99 SLA</span>
+          </div>
+          <div class="stat-block-row">
+            <span class="lbl">CONTAINERS:</span>
+            <span class="val">Multi-Region K8s Cluster</span>
+          </div>
+          
+          <div class="coordinates-hud-graphics">
+            <canvas id="canvas-ping-telemetry" class="ping-telemetry-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Embedded Fullstack Architecture Simulator -->
+    <app-architecture-simulator class="scroll-reveal"></app-architecture-simulator>
+  </section>
+
+  <!-- SECTION 3: SHOWCASES (STAGGERED VERTICAL GRID WITH CUSTOM HTML5 CANVASES) -->
+  <section id="projects" class="showcase-section">
+    <div class="showcase-header">
+      <span class="sec-subtitle" appDecodeText appGlitch>02 / SELECTION</span>
+      <h2 class="sec-title" appDecodeText [delay]="200">Creative Engineering</h2>
+      <p class="sec-tip">Hover over mockups to interact with physical simulations.</p>
+    </div>
+
+    <!-- Staggered Vertical List -->
+    <div class="projects-list">
+      @for (project of projects; track project.id; let isEven = $even) {
+        <div class="project-row" [class.row-reversed]="isEven">
+          
+          <!-- Column 1: Details -->
+          <div class="project-details-col" appStaggerReveal selector="[appTextReveal]" appParallax [speed]="0.04">
+            <span class="project-index" appTextReveal appGlitch>0{{ project.id }}.</span>
+            <h3 class="project-heading" appTextReveal>{{ project.title }}</h3>
+            <p class="project-summary-text" appTextReveal>{{ project.summary }}</p>
+            
+            <div class="project-pill-tags" appTextReveal>
+              @for (tag of project.tags; track tag) {
+                <span class="project-pill-tag">{{ tag }}</span>
+              }
+            </div>
+            
+            <button class="project-editorial-btn" (click)="openProject(project)" appMagnetic appTextReveal>
+              Read Specifications →
+            </button>
+          </div>
+          
+          <!-- Column 2: Handcrafted Canvas Animations -->
+          <div class="project-mockup-col" appParallax [speed]="-0.04">
+            @if (project.id === 1) {
+              <!-- GitInsights -->
+              <div class="project-card scroll-reveal" 
+                   data-cursor-label="EXPLORE"
+                   (mouseenter)="onProjectHover(1); isHoveredAura = true" 
+                   (mouseleave)="onProjectLeave(1); isHoveredAura = false"
+                   (mousemove)="onCardMouseGlow($event)"
+                   (click)="openProject(project)">
+                <div class="hover-glow-ring"></div>
+                <div class="card-bg-glow"></div>
+                <div class="card-scanner"></div>
+
+                <!-- Cyber Corner Brackets -->
+                <div class="corner-bracket t-l"></div>
+                <div class="corner-bracket t-r"></div>
+                <div class="corner-bracket b-l"></div>
+                <div class="corner-bracket b-r"></div>
+
+                <div class="card-header">
+                  <span class="card-num">git_insights.sys</span>
+                  <span class="card-mock-label">Commit Stream // Click to Pulsate</span>
+                </div>
+                <div class="card-body">
+                  <div class="canvas-container">
+                    <canvas id="canvas-aura"></canvas>
+                  </div>
+                  <!-- Decrypting Console Panel -->
+                  <div class="project-card-console font-mono">
+                    @for (line of project1Logs(); track line) {
+                      <div class="console-log-line" [class.success]="line.includes('[SUCCESS]') || line.includes('OK')">{{ line }}</div>
+                    }
+                  </div>
+                </div>
+              </div>
+            } @else if (project.id === 2) {
+              <!-- Kerno CRM -->
+              <div class="project-card scroll-reveal" 
+                   data-cursor-label="EXPLORE"
+                   #quantumCard
+                   (mouseenter)="onProjectHover(2); isHoveredQuantum = true" 
+                   (mouseleave)="onProjectLeave(2); isHoveredQuantum = false"
+                   (mousemove)="onQuantumMouseMove($event, quantumCard); onCardMouseGlow($event)"
+                   (click)="openProject(project)">
+                <div class="hover-glow-ring"></div>
+                <div class="card-bg-glow"></div>
+                <div class="card-scanner"></div>
+
+                <!-- Cyber Corner Brackets -->
+                <div class="corner-bracket t-l"></div>
+                <div class="corner-bracket t-r"></div>
+                <div class="corner-bracket b-l"></div>
+                <div class="corner-bracket b-r"></div>
+
+                <div class="card-header">
+                  <span class="card-num">kerno_crm.sys</span>
+                  <span class="card-mock-label">Neural Network // Click to Disperse</span>
+                </div>
+                <div class="card-body">
+                  <div class="canvas-container">
+                    <canvas id="canvas-quantum"></canvas>
+                  </div>
+                  <!-- Decrypting Console Panel -->
+                  <div class="project-card-console font-mono">
+                    @for (line of project2Logs(); track line) {
+                      <div class="console-log-line" [class.success]="line.includes('[SUCCESS]') || line.includes('OK')">{{ line }}</div>
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+          
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- SECTION 4: TECHNICAL PLAYGROUND (SKILLS 3D APERTURE CONSTELLATION) -->
+  <section id="skills" class="skills-section">
+    <div class="skills-header">
+      <span class="sec-subtitle" appDecodeText appGlitch>03 / EXPERTISE</span>
+      <h2 class="sec-title" appDecodeText [delay]="200">Architectural Capabilities</h2>
+    </div>
+
+    <div class="skills-matrix-grid" appParallax [speed]="0.015">
+      <!-- Card 1: Core Engine -->
+      <div class="skill-category-card" #card1 (mousemove)="onCardMouseGlow($event)">
+        <div class="card-dot-grid"></div>
+        <div class="card-aurora"></div>
+        <div class="card-border-glow"></div>
+        <div class="card-scanner"></div>
+        <div class="skill-card-content">
+          <span class="card-category-num">01 // CORE ENGINE</span>
+          <h3 class="card-category-title">Core Development</h3>
+          <div class="category-skills-list">
+            @for (skill of getSkillsByCategory('CORE ENGINE'); track skill.id) {
+              <button class="skill-badge-btn"
+                      [class.active]="hoveredSkillNode()?.id === skill.id"
+                      (mouseenter)="onSkillHover(skill)"
+                      (mouseleave)="onSkillLeave()">
+                <span class="skill-led-dot"></span>
+                <span class="skill-badge-name" appGlitch>{{ skill.name }}</span>
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Client Frameworks -->
+      <div class="skill-category-card" #card2 (mousemove)="onCardMouseGlow($event)">
+        <div class="card-dot-grid"></div>
+        <div class="card-aurora"></div>
+        <div class="card-border-glow"></div>
+        <div class="card-scanner"></div>
+        <div class="skill-card-content">
+          <span class="card-category-num">02 // CLIENT FRAMEWORKS</span>
+          <h3 class="card-category-title">Client-Side Tech</h3>
+          <div class="category-skills-list">
+            @for (skill of getSkillsByCategory('CLIENT FRAMEWORKS'); track skill.id) {
+              <button class="skill-badge-btn"
+                      [class.active]="hoveredSkillNode()?.id === skill.id"
+                      (mouseenter)="onSkillHover(skill)"
+                      (mouseleave)="onSkillLeave()">
+                <span class="skill-led-dot"></span>
+                <span class="skill-badge-name" appGlitch>{{ skill.name }}</span>
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Data Architecture -->
+      <div class="skill-category-card" #card3 (mousemove)="onCardMouseGlow($event)">
+        <div class="card-dot-grid"></div>
+        <div class="card-aurora"></div>
+        <div class="card-border-glow"></div>
+        <div class="card-scanner"></div>
+        <div class="skill-card-content">
+          <span class="card-category-num">03 // DATA ARCHITECTURE</span>
+          <h3 class="card-category-title">Data Systems</h3>
+          <div class="category-skills-list">
+            @for (skill of getSkillsByCategory('DATA ARCHITECTURE'); track skill.id) {
+              <button class="skill-badge-btn"
+                      [class.active]="hoveredSkillNode()?.id === skill.id"
+                      (mouseenter)="onSkillHover(skill)"
+                      (mouseleave)="onSkillLeave()">
+                <span class="skill-led-dot"></span>
+                <span class="skill-badge-name" appGlitch>{{ skill.name }}</span>
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Cloud & DevOps -->
+      <div class="skill-category-card" #card4 (mousemove)="onCardMouseGlow($event)">
+        <div class="card-dot-grid"></div>
+        <div class="card-aurora"></div>
+        <div class="card-border-glow"></div>
+        <div class="card-scanner"></div>
+        <div class="skill-card-content">
+          <span class="card-category-num">04 // INFRASTRUCTURE</span>
+          <h3 class="card-category-title">Cloud & DevOps</h3>
+          <div class="category-skills-list">
+            @for (skill of getSkillsByCategory('CLOUD & DEVOPS'); track skill.id) {
+              <button class="skill-badge-btn"
+                      [class.active]="hoveredSkillNode()?.id === skill.id"
+                      (mouseenter)="onSkillHover(skill)"
+                      (mouseleave)="onSkillLeave()">
+                <span class="skill-led-dot"></span>
+                <span class="skill-badge-name" appGlitch>{{ skill.name }}</span>
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Artificial Intelligence -->
+      <div class="skill-category-card" #card5 (mousemove)="onCardMouseGlow($event)">
+        <div class="card-dot-grid"></div>
+        <div class="card-aurora"></div>
+        <div class="card-border-glow"></div>
+        <div class="card-scanner"></div>
+        <div class="skill-card-content">
+          <span class="card-category-num">05 // INTELLIGENCE & ML</span>
+          <h3 class="card-category-title">AI & Data Science</h3>
+          <div class="category-skills-list">
+            @for (skill of getSkillsByCategory('ARTIFICIAL INTELLIGENCE'); track skill.id) {
+              <button class="skill-badge-btn"
+                      [class.active]="hoveredSkillNode()?.id === skill.id"
+                      (mouseenter)="onSkillHover(skill)"
+                      (mouseleave)="onSkillLeave()">
+                <span class="skill-led-dot"></span>
+                <span class="skill-badge-name" appGlitch>{{ skill.name }}</span>
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Telemetry Console & Canvas -->
+      <div class="skill-category-card telemetry-card" #card6 (mousemove)="onCardMouseGlow($event)">
+        <div class="card-dot-grid"></div>
+        <div class="card-border-glow"></div>
+        <div class="card-scanner"></div>
+        <div class="skill-card-content">
+          <div class="telemetry-header">
+            <span class="specs-num">SYS // MON</span>
+            <span class="specs-category">TELEMETRY MONITOR</span>
+          </div>
+
+          <div class="telemetry-canvas-wrap">
+            <canvas id="canvas-skills-telemetry" class="skills-telemetry-canvas"></canvas>
+          </div>
+
+          <div class="telemetry-details-wrap">
+            @if (hoveredSkillNode(); as node) {
+              <!-- Hover specs details state -->
+              <div class="specs-content-wrap hover-state">
+                <div class="specs-meta">
+                  <span class="specs-num">SKL // {{ node.id }}</span>
+                  <span class="specs-category">{{ node.category }}</span>
+                </div>
+                <h3 class="specs-title">{{ node.name }}</h3>
+
+                <div class="specs-progress-section">
+                  <div class="specs-progress-label">
+                    <span>Expertise Level</span>
+                    <span class="accent-gold font-mono">{{ node.level }}%</span>
+                  </div>
+                  <div class="specs-bar-wrap">
+                    <div class="specs-bar" [style.width.%]="node.level"></div>
+                  </div>
+                </div>
+
+                <div class="specs-frameworks">
+                  <span class="frameworks-label">Key Stack / Integrations</span>
+                  <div class="frameworks-list">
+                    @for (fw of node.stack; track fw) {
+                      <span class="framework-badge">{{ fw }}</span>
+                    }
+                  </div>
+                </div>
+
+                <!-- Custom Console Log -->
+                <div class="specs-console">
+                  <div class="console-header">
+                    <span class="console-dot green"></span>
+                    <span class="console-title">{{ node.name.toLowerCase() }}_telemetry.log</span>
+                  </div>
+                  <div class="console-body font-mono">
+                    @for (log of activeLogs(); track log) {
+                      <div class="console-line" [class.success]="log.includes('[SUCCESS]') || log.includes('[OK]')">
+                        <span class="c-prompt">></span> {{ log }}
+                      </div>
+                    }
+                  </div>
+                </div>
+              </div>
+            } @else {
+              <!-- Default status stats state -->
+              <div class="specs-content-wrap default-state">
+                <div class="specs-meta">
+                  <span class="specs-num">SYS // MON</span>
+                  <span class="specs-category">SYSTEM ACTIVE</span>
+                </div>
+                <h3 class="specs-title">Logic Matrix</h3>
+
+                <!-- Simulated Signal Latency chart -->
+                <div class="specs-sparklines">
+                  <span class="sparkline-label">Simulated Signal Latency</span>
+                  <div class="sparkline-svg-wrap">
+                    <svg class="sparkline-svg" viewBox="0 0 100 30">
+                      <path d="M 0 15 Q 10 5, 20 20 T 40 10 T 60 25 T 80 12 T 100 18" fill="none" stroke="var(--color-accent)" stroke-width="1.5" />
+                      <path d="M 0 12 Q 15 22, 30 8 T 60 18 T 90 6 T 100 12" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- System Info grid -->
+                <div class="specs-info-grid">
+                  <div class="info-row">
+                    <span class="info-lbl">Nodes Tracked</span>
+                    <span class="info-val">19 active</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-lbl">Link Load</span>
+                    <span class="info-val font-mono">1.14 Gb/s</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-lbl">HUD Render</span>
+                    <span class="info-val font-mono accent-gold">60 FPS</span>
+                  </div>
+                </div>
+
+                <!-- Terminal output loop -->
+                <div class="specs-console">
+                  <div class="console-header">
+                    <span class="console-dot yellow"></span>
+                    <span class="console-title">system_monitor.sh</span>
+                  </div>
+                  <div class="console-body font-mono default-logs">
+                    @for (log of activeLogs(); track log) {
+                      <div class="console-line">
+                        <span class="c-prompt">></span> {{ log }}
+                      </div>
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4.2: CHRONOLOGY (EXPERIENCE, EDUCATION, CERTS) -->
+  <section id="chronology" class="chronology-section">
+    <div class="chronology-header">
+      <span class="sec-subtitle" appDecodeText appGlitch>04 / CHRONOLOGY</span>
+      <h2 class="sec-title" appDecodeText [delay]="200">Milestones & History</h2>
+      <p class="sec-tip">A timeline tracking professional roles, educational paths, achievements, and credentials.</p>
+    </div>
+
+    <div class="chronology-grid">
+      
+      <!-- Column 1: Experience & Education -->
+      <div class="chronology-col scroll-reveal">
+        <h3 class="chronology-col-title">> Experience & Academic Track</h3>
+        
+        <div class="timeline-wrapper">
+          <div class="timeline-line"></div>
+          
+          <!-- Milestone 1: Experience -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-content-card">
+              <div class="card-time">June 2025 – August 2025</div>
+              <h4 class="card-title">AI & Full-Stack Intern</h4>
+              <h5 class="card-org accent-gold">NeuralBI Ltd (Remote)</h5>
+              <ul class="card-bullets">
+                <li>Developed AI-powered backend services using Python and Node.js.</li>
+                <li>Designed and deployed REST APIs for real-time data processing.</li>
+                <li>Contributed to NLP-based automation workflows.</li>
+                <li>Worked in Agile/Scrum environment with cross-functional teams.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Milestone 2: SRM University -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-content-card">
+              <div class="card-time">09/2023 – 05/2027</div>
+              <h4 class="card-title">Bachelor of Technology</h4>
+              <h5 class="card-org">SRM Institute of Science and Technology</h5>
+              <div class="card-meta">Tiruchirappalli, Tamil Nadu // CGPA: 9.20/10.0</div>
+              <p class="card-text">Specializing in Computer Science and Engineering (AI & ML). Deep focus on neural models, full stack architectures, and cloud deployments.</p>
+            </div>
+          </div>
+
+          <!-- Milestone 3: Army Public School -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-content-card">
+              <div class="card-time">04/2020 – 03/2023</div>
+              <h4 class="card-title">High School Graduation</h4>
+              <h5 class="card-org">Army Public School</h5>
+              <div class="card-meta">Bathinda, Punjab</div>
+              <div class="card-grades">
+                <span>12th Grade: <strong>76%</strong></span>
+                <span style="margin-left: 20px;">10th Grade: <strong>79%</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2: Credentials & Achievements -->
+      <div class="chronology-col scroll-reveal">
+        <h3 class="chronology-col-title">> Certifications & Achievements</h3>
+
+        <div class="timeline-wrapper">
+          <div class="timeline-line"></div>
+
+          <!-- Milestone 4: Achievements -->
+          <div class="timeline-item">
+            <div class="timeline-node achievement-node"></div>
+            <div class="timeline-content-card achievement-card">
+              <div class="card-time">Achievements</div>
+              <h4 class="card-title">Hackathon Accomplishments</h4>
+              <div class="achievement-item">
+                <span class="achievement-icon">🏆</span>
+                <div class="achievement-desc">
+                  <strong>Finalist</strong> // NASSCOM NextGen Nexus Hackathon (October 2024)
+                </div>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">⚡</span>
+                <div class="achievement-desc">
+                  <strong>Top 5 Rank</strong> // SIH (Smart India Hackathon)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Milestone 5: Certifications -->
+          <div class="timeline-item">
+            <div class="timeline-node cert-node"></div>
+            <div class="timeline-content-card cert-card">
+              <div class="card-time">Credentials</div>
+              <h4 class="card-title">Licenses & Certifications</h4>
+              <div class="certs-list">
+                <div class="cert-item">
+                  <span class="cert-badge">NVIDIA</span>
+                  <span class="cert-name">Fundamentals of Deep Learning</span>
+                </div>
+                <div class="cert-item">
+                  <span class="cert-badge">NVIDIA</span>
+                  <span class="cert-name">Transformer-Based NLP Applications</span>
+                </div>
+                <div class="cert-item">
+                  <span class="cert-badge">BOSCH</span>
+                  <span class="cert-name">IIT Hyderabad Hackathon Participation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HANDDRAWN DIVIDER 4 -->
+  <!-- SECTION 4.5: DEVELOPER ANALYTICS (DASHBOARD) -->
+  <section id="analytics" class="analytics-section">
+    <div class="analytics-header">
+      <span class="sec-subtitle" appDecodeText appGlitch>03 / INTEGRATIONS</span>
+      <h2 class="sec-title" appDecodeText [delay]="200">System Activity</h2>
+      <p class="sec-tip">Live developer telemetry tracking code contributions & logic metrics.</p>
+    </div>
+
+    <!-- Telemetry Cards Grid -->
+    <div class="analytics-grid">
+      
+      <!-- Card 1: GitHub Contributions Heatmap -->
+      <div class="analytics-card heatmap-card scroll-reveal" 
+           appParallax [speed]="0.02"
+           (mousemove)="onCardMouseGlow($event)">
+        <div class="hover-glow-ring"></div>
+        <div class="card-scanner"></div>
+        <div class="card-border-wrap" appScrollDraw [delay]="150">
+          <svg class="card-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 2 0 L 98 0 C 99 0, 100 1, 100 2 L 100 98 C 100 99, 99 100, 98 100 L 2 100 C 1 100, 0 99, 0 98 L 0 2 C 0 1, 1 0, 2 0" fill="none" stroke="rgba(197, 168, 128, 0.15)" stroke-width="0.75" />
+          </svg>
+        </div>
+
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-num">01 / VCS</span>
+            <h3 class="card-heading">GitHub Repository Stream</h3>
+          </div>
+          <button class="sync-action-btn" (click)="syncLiveFeed()" [disabled]="isSyncing()" appMagnetic data-cursor-label="SYNC">
+            <span>{{ isSyncing() ? 'SYNCHRONIZING...' : '[SYNC_LIVE_FEED]' }}</span>
+          </button>
+        </div>
+
+        <div class="heatmap-container-wrapper">
+          <div class="heatmap-legend">
+            <span class="legend-info">371 Days Active</span>
+            <div class="legend-scale">
+              <span>Less</span>
+              <div class="scale-tile tile-level-0"></div>
+              <div class="scale-tile tile-level-1"></div>
+              <div class="scale-tile tile-level-2"></div>
+              <div class="scale-tile tile-level-3"></div>
+              <div class="scale-tile tile-level-4"></div>
+              <span>More</span>
+            </div>
+          </div>
+
+          <!-- The Staggered Contribution Grid -->
+          <div class="heatmap-grid" #heatmapGrid>
+            @for (tile of contributionTiles(); track $index) {
+              <div class="heatmap-tile" 
+                   [class]="'tile-level-' + tile.level" 
+                   [attr.data-count]="tile.count"
+                   [attr.data-date]="tile.date"
+                   (mousemove)="updateTooltipPos($event)"
+                   (mouseenter)="hoveredTile.set(tile)"
+                   (mouseleave)="hoveredTile.set(null)">
+              </div>
+            }
+          </div>
+
+          <!-- Tooltip overlay inside the card -->
+          <div class="heatmap-tooltip" [class.active]="hoveredTile() !== null" [style.left.px]="tooltipX" [style.top.px]="tooltipY">
+            @if (hoveredTile(); as t) {
+              <strong>{{ t.count }} contributions</strong> on {{ t.date }}
+            }
+          </div>
+        </div>
+
+        <div class="heatmap-stats-footer">
+          <div class="stat-box">
+            <span class="stat-label">Contributions (YTD)</span>
+            <span class="stat-val accent-gold" #contribTotal>{{ githubYTD() | number }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Longest Streak</span>
+            <span class="stat-val">{{ githubStreak() }} days</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Active Repos</span>
+            <span class="stat-val">{{ githubActiveRepos() }}</span>
+          </div>
+        </div>
+
+        <!-- Sync Live terminal console overlay -->
+        <div class="sync-terminal-overlay" [class.active]="isSyncing()">
+          <div class="terminal-glitch-screen"></div>
+          <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">git_insights_sync.log</span>
+          </div>
+          <div class="terminal-content font-mono">
+            @for (log of syncLogs(); track $index) {
+              <div class="terminal-line" [class.success]="log.includes('[SUCCESS]')">
+                <span class="prompt">></span> {{ log }}
+              </div>
+            }
+            <div class="terminal-cursor">_</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Language breakdown (concentric circle SVG) -->
+      <div class="analytics-card languages-card scroll-reveal" 
+           appParallax [speed]="-0.02"
+           (mousemove)="onCardMouseGlow($event)">
+        <div class="hover-glow-ring"></div>
+        <div class="card-scanner"></div>
+
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-num">02 / LANGS</span>
+            <h3 class="card-heading">Top Language Shares</h3>
+          </div>
+        </div>
+
+        <div class="languages-visualizer">
+          <div class="languages-svg-wrap">
+            <svg class="languages-svg" viewBox="0 0 120 120">
+              <!-- Concentric Progress Bars -->
+              <!-- 1. Go (48%) -->
+              <circle class="lang-track" cx="60" cy="60" r="50" fill="none" stroke="rgba(197, 168, 128, 0.03)" stroke-width="3.5" />
+              <circle class="lang-progress lang-go" cx="60" cy="60" r="50" fill="none" stroke="var(--color-accent)" stroke-width="4" stroke-linecap="round" #langGoCircle />
+
+              <!-- 2. TypeScript / Angular (35%) -->
+              <circle class="lang-track" cx="60" cy="60" r="40" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="3.5" />
+              <circle class="lang-progress lang-ts" cx="60" cy="60" r="40" fill="none" stroke="#e2e2e9" stroke-width="4" stroke-linecap="round" #langTsCircle />
+
+              <!-- 3. Rust (12%) -->
+              <circle class="lang-track" cx="60" cy="60" r="30" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="3.5" />
+              <circle class="lang-progress lang-rust" cx="60" cy="60" r="30" fill="none" stroke="rgba(197, 168, 128, 0.45)" stroke-width="4" stroke-linecap="round" #langRustCircle />
+            </svg>
+          </div>
+
+          <div class="languages-legend">
+            <div class="legend-item">
+              <span class="bullet go-bullet"></span>
+              <span class="lang-name">GoLang</span>
+              <span class="lang-share accent-gold">48%</span>
+            </div>
+            <div class="legend-item">
+              <span class="bullet ts-bullet"></span>
+              <span class="lang-name">TS / Angular</span>
+              <span class="lang-share">35%</span>
+            </div>
+            <div class="legend-item">
+              <span class="bullet rust-bullet"></span>
+              <span class="lang-name">Rust</span>
+              <span class="lang-share" style="color: rgba(226, 226, 229, 0.6)">12%</span>
+            </div>
+            <div class="legend-item">
+              <span class="bullet other-bullet"></span>
+              <span class="lang-name">Others</span>
+              <span class="lang-share" style="color: rgba(255, 255, 255, 0.25)">5%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: LeetCode Problems Solved Donut Wheel -->
+      <div class="analytics-card leetcode-card scroll-reveal" 
+           appParallax [speed]="0.03"
+           (mousemove)="onCardMouseGlow($event)">
+        <div class="hover-glow-ring"></div>
+        <div class="card-scanner"></div>
+
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-num">03 / ALGO</span>
+            <h3 class="card-heading">Algorithms Progress</h3>
+          </div>
+        </div>
+
+        <div class="leetcode-visualizer">
+          <div class="donut-container">
+            <svg class="donut-svg" viewBox="0 0 100 100">
+              <circle class="donut-track" cx="50" cy="50" r="38" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="6.5" />
+              <!-- Segments using custom stroke-dasharray and stroke-dashoffset -->
+              <circle class="donut-segment leet-easy" cx="50" cy="50" r="38" fill="none" stroke="var(--color-accent)" stroke-width="7" #leetEasyCircle />
+              <circle class="donut-segment leet-medium" cx="50" cy="50" r="38" fill="none" stroke="#e2e2e9" stroke-width="7" #leetMedCircle />
+              <circle class="donut-segment leet-hard" cx="50" cy="50" r="38" fill="none" stroke="rgba(197, 168, 128, 0.4)" stroke-width="7" #leetHardCircle />
+            </svg>
+
+            <div class="donut-center-info">
+              <span class="solved-count" #leetSolvedText>0</span>
+              <span class="solved-label">Solved</span>
+            </div>
+          </div>
+
+          <div class="leetcode-stats">
+            <div class="leet-row">
+              <div class="leet-bullet easy-bg"></div>
+              <span class="leet-label">Easy</span>
+              <span class="leet-num font-mono">240<span class="leet-total">/300</span></span>
+            </div>
+            <div class="leet-row">
+              <div class="leet-bullet med-bg"></div>
+              <span class="leet-label">Medium</span>
+              <span class="leet-num font-mono">312<span class="leet-total">/600</span></span>
+            </div>
+            <div class="leet-row">
+              <div class="leet-bullet hard-bg"></div>
+              <span class="leet-label">Hard</span>
+              <span class="leet-num font-mono">90<span class="leet-total">/300</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HANDDRAWN DIVIDER 5 -->
+  <!-- SECTION 5: CONTACT (2-COLUMN BALANCED CONTACT DECK) -->
+  <section id="contact" class="contact-section">
+    <!-- Interactive Background Signal Particle Canvas -->
+    <canvas id="canvas-contact-bg" class="contact-bg-canvas"></canvas>
+
+    <div class="contact-header">
+      <span class="sec-subtitle" appDecodeText appGlitch>04 / INQUIRIES</span>
+      <h2 class="sec-title" appDecodeText [delay]="200">Establish Contact</h2>
+    </div>
+
+    <div class="contact-grid-deck">
+      <!-- COLUMN 1: Architect Identity & Contact Details Card -->
+      <div class="contact-info-card scroll-reveal" (mousemove)="onCardMouseGlow($event)">
+        <div class="hover-glow-ring"></div>
+        <div class="card-scanner"></div>
+        <div class="corner-bracket t-l"></div>
+        <div class="corner-bracket t-r"></div>
+        <div class="corner-bracket b-l"></div>
+        <div class="corner-bracket b-r"></div>
+
+        <!-- Senior Fullstack Architect Portrait Badge -->
+        <div class="contact-portrait-wrap">
+          <div class="portrait-avatar-frame">
+            <img src="/eshwar.jpg" alt="Eshwar - Senior Fullstack Architect" class="portrait-img" />
+            <div class="portrait-glow-ring"></div>
+            <div class="portrait-scanline"></div>
+          </div>
+          <div class="portrait-info">
+            <span class="portrait-name">ESHWAR J.</span>
+            <span class="portrait-role accent-gold font-mono">SENIOR FULLSTACK ARCHITECT</span>
+            <span class="portrait-status"><span class="pill-dot green"></span> AVAILABLE FOR CONTRACTS</span>
+          </div>
+        </div>
+
+        <div class="contact-info-body">
+          <span class="editorial-card-num" appDecodeText>05 / COLLABORATION</span>
+          <h4 class="editorial-card-title" appDecodeText [delay]="200">PROJECT ENQUIRIES</h4>
+          <p class="editorial-card-desc">
+            I am currently accepting select contract roles, codebase optimization audits, and technical system architecture design requests.
+          </p>
+
+          <div class="editorial-card-coordinates font-mono">
+            <div class="coord-row">
+              <span class="coord-label">EMAIL:</span>
+              <a href="mailto:jeshwar.work@gmail.com" class="coord-val accent-gold">jeshwar.work@gmail.com</a>
+            </div>
+            <div class="coord-row">
+              <span class="coord-label">PHONE:</span>
+              <a href="tel:+919761054596" class="coord-val">+91 9761054596</a>
+            </div>
+            <div class="coord-row">
+              <span class="coord-label">LOCATION:</span>
+              <span class="coord-val">Bengaluru, IN // Remote</span>
+            </div>
+            <div class="coord-row">
+              <span class="coord-label">SOCIAL:</span>
+              <span class="coord-val">
+                <a href="https://github.com/Eshwar187" target="_blank" class="coord-link" appMagnetic>GitHub</a> // 
+                <a href="https://www.linkedin.com/in/eshwar-j-7b8854289/" target="_blank" class="coord-link" appMagnetic>LinkedIn</a>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oscilloscope Wave Telemetry Bar -->
+        <div class="transmitter-wave-container">
+          <canvas id="canvas-transmitter" class="transmitter-canvas"></canvas>
+          <span class="wave-telemetry-status" id="wave-telemetry">TELEMETRY: Rest state // 0.12 GHz</span>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: Subspace Ingress Inquiry Form Card -->
+      <div class="contact-form-card scroll-reveal" (mousemove)="onCardMouseGlow($event)">
+        <div class="hover-glow-ring"></div>
+        <div class="card-scanner"></div>
+        <div class="corner-bracket t-l"></div>
+        <div class="corner-bracket t-r"></div>
+        <div class="corner-bracket b-l"></div>
+        <div class="corner-bracket b-r"></div>
+
+        <div class="form-card-header">
+          <span class="editorial-card-num">SUBSPACE INGRESS</span>
+          <h4 class="editorial-card-title">Send System Inquiry</h4>
+        </div>
+
+        <form class="transmitter-form" (submit)="onSubmit($event)">
+          <div class="trans-group">
+            <label class="trans-label">Full Name</label>
+            <input type="text" class="trans-input" required placeholder="E.g. Jane Doe" (input)="onFormInput()" />
+          </div>
+          <div class="trans-group">
+            <label class="trans-label">Email Address</label>
+            <input type="email" class="trans-input" required placeholder="jane@example.com" (input)="onFormInput()" />
+          </div>
+          <div class="trans-group">
+            <label class="trans-label">Message / Project Specs</label>
+            <textarea class="trans-textarea" required rows="3" placeholder="Outline your system goals or project requirements..." (input)="onFormInput()"></textarea>
+          </div>
+
+          @if (formState() === 'success') {
+            <div class="trans-success font-mono">✓ Inquiry transmitted successfully. I will respond within 24h.</div>
+          } @else {
+            <button type="submit" class="trans-submit-btn" [disabled]="formState() === 'submitting'" appMagnetic data-cursor-label="SEND">
+              {{ formState() === 'submitting' ? 'Transmitting...' : 'Send Message' }}
+            </button>
+          }
+
+          <!-- Real-Time Telemetry Logs -->
+          @if (formLogs().length > 0) {
+            <div class="form-diagnostics-console font-mono">
+              @for (line of formLogs(); track line) {
+                <div class="console-log-line" [class.success]="line.includes('[SUCCESS]') || line.includes('OK')">{{ line }}</div>
+              }
+            </div>
+          }
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Project Specs Overlay -->
+<div class="editorial-modal-overlay" (click)="closeProject()">
+  @if (selectedProject(); as p) {
+    <div class="editorial-modal-panel" (click)="$event.stopPropagation()">
+      <button class="modal-close-btn" (click)="closeProject()" appMagnetic data-cursor-label="CLOSE">&times;</button>
+      <div class="modal-content">
+        <div class="modal-subtitle">0{{ p.id }} // Project Specifications</div>
+        <h3 class="modal-title">{{ p.title }}</h3>
+        <p class="modal-desc">{{ p.description }}</p>
+        
+        <div class="modal-tech-stack">
+          @for (tech of p.tech; track tech) {
+            <span class="modal-tech-badge">{{ tech }}</span>
+          }
+        </div>
+        
+        <div class="modal-actions">
+          <a [href]="p.link" target="_blank" class="editorial-btn" appMagnetic data-cursor-label="SOURCE">Source Code</a>
+          <button class="editorial-btn" style="border-color: var(--color-border); color: var(--color-text-muted);" (click)="closeProject()" appMagnetic data-cursor-label="CLOSE">Return</button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

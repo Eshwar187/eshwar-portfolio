@@ -1,0 +1,109 @@
+<div class="project-preview-container" [class.active]="activeProjectId() !== null" #previewContainer>
+  <div class="preview-wrapper">
+    @for (project of projects(); track project.id) {
+      <div class="preview-slide" [class.visible]="activeProjectId() === project.id">
+        <div class="wireframe-mockup">
+          <div class="wireframe-browser-bar">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-url">eshwar.dev/{{ project.title | lowercase }}</span>
+          </div>
+          <div class="wireframe-content">
+            @if (project.id === 1) {
+              <!-- Aura DB (Database / Systems Wireframe) -->
+              <div class="db-wireframe">
+                <div class="db-title-bar">
+                  <span>Distributed Cluster Map</span>
+                  <strong class="pulse-glow-dot">ONLINE</strong>
+                </div>
+                <div class="db-grid">
+                  <div class="db-node-group">
+                    <div class="db-node pulse-glow">Load Balancer</div>
+                  </div>
+                  <div class="db-connections">
+                    <svg class="db-svg-lines" viewBox="0 0 100 60" preserveAspectRatio="none">
+                      <path d="M 50 0 L 15 50 M 50 0 L 50 50 M 50 0 L 85 50" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none"/>
+                    </svg>
+                  </div>
+                  <div class="db-nodes-row">
+                    <div class="db-node">Replica A</div>
+                    <div class="db-node active">Leader Node</div>
+                    <div class="db-node">Replica B</div>
+                  </div>
+                </div>
+                <div class="db-stats">
+                  <div class="db-stat-row">
+                    <span>Write RPS</span>
+                    <strong>524,192 req/s</strong>
+                  </div>
+                  <div class="db-stat-row">
+                    <span>Replication Lag</span>
+                    <strong>0.18 ms</strong>
+                  </div>
+                  <div class="db-stat-row" style="text-align: right;">
+                    <span>Read Latency</span>
+                    <strong>0.84 ms</strong>
+                  </div>
+                </div>
+              </div>
+            } @else if (project.id === 2) {
+              <!-- Quantum UI (Design System / Component Wireframe) -->
+              <div class="ui-wireframe">
+                <div class="ui-title-bar">
+                  <span>Component Tokens Spectrum</span>
+                  <span>v2.4.0-release</span>
+                </div>
+                <div class="ui-grid">
+                  <div class="ui-panel-left">
+                    <div class="ui-palette">
+                      <span class="color-swatch swatch-accent"></span>
+                      <span class="color-swatch swatch-dark"></span>
+                      <span class="color-swatch swatch-cream"></span>
+                      <span class="color-swatch swatch-muted"></span>
+                    </div>
+                    <div class="ui-font-test">
+                      <span class="font-preview display-font">Aa</span>
+                      <span class="font-preview sans-font">Space Grotesk</span>
+                    </div>
+                  </div>
+                  <div class="ui-panel-right">
+                    <div class="ui-components-wire">
+                      <div class="ui-wire-btn">Primary Action</div>
+                      <div class="ui-wire-slider"></div>
+                      <div class="ui-wire-row">
+                        <div class="ui-wire-toggle"></div>
+                        <span style="font-size: 0.55rem; opacity: 0.6;">Zoneless Mode</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            } @else if (project.id === 3) {
+              <!-- Aether CI (CI/CD Dashboard Visualizer) -->
+              <div class="ci-wireframe">
+                <div class="ci-title-bar">
+                  <span>Container Execution Logs</span>
+                  <span class="accent-color">Job #829</span>
+                </div>
+                <div class="ci-flow">
+                  <div class="ci-node success">Build OK</div>
+                  <div class="ci-arrow">→</div>
+                  <div class="ci-node active">Run Tests</div>
+                  <div class="ci-arrow">→</div>
+                  <div class="ci-node pending">Publish Image</div>
+                </div>
+                <div class="ci-console">
+                  <code>$ vitest run --coverage</code>
+                  <code>✓ src/app/directives/tilt.spec.ts (4 tests)</code>
+                  <code>✓ src/app/directives/magnetic.spec.ts (6 tests)</code>
+                  <code>[SUCCESS] 100% statements, 0 compile warnings</code>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

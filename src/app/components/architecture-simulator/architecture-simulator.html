@@ -1,0 +1,129 @@
+<div class="arch-control-grid">
+  <!-- COLUMN 1: System Architecture Simulator -->
+  <div class="arch-simulator-card">
+    <!-- Cyber Corner Brackets -->
+    <div class="corner-bracket t-l"></div>
+    <div class="corner-bracket t-r"></div>
+    <div class="corner-bracket b-l"></div>
+    <div class="corner-bracket b-r"></div>
+
+    <!-- Header & Telemetry Mode Controls -->
+    <div class="arch-header">
+      <div class="arch-title-wrap">
+        <span class="arch-tag">SYSTEM ARCHITECTURE SIMULATOR</span>
+        <h3 class="arch-heading">Microservices Ingress Pipeline</h3>
+      </div>
+
+      <!-- Mode Selector Buttons -->
+      <div class="arch-mode-controls">
+        <button class="mode-btn" [class.active]="activeMode() === 'normal'" (click)="setMode('normal')">
+          ⚡ Nominal
+        </button>
+        <button class="mode-btn" [class.active]="activeMode() === 'load_test'" (click)="setMode('load_test')">
+          🔥 18.5k Load
+        </button>
+        <button class="mode-btn" [class.active]="activeMode() === 'cache_miss'" (click)="setMode('cache_miss')">
+          🚫 Eviction
+        </button>
+        <button class="mode-btn" [class.active]="activeMode() === 'db_failover'" (click)="setMode('db_failover')">
+          🔄 Failover
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Telemetry Readout Grid -->
+    <div class="arch-stats-grid font-mono">
+      <div class="arch-stat-pill">
+        <span class="stat-lbl">CONCURRENCY</span>
+        <span class="stat-val highlight">{{ concurrencyRate() | number }} <small>req/s</small></span>
+      </div>
+      <div class="arch-stat-pill">
+        <span class="stat-lbl">LATENCY (P50)</span>
+        <span class="stat-val">{{ avgLatency() }} <small>ms</small></span>
+      </div>
+      <div class="arch-stat-pill">
+        <span class="stat-lbl">THROUGHPUT (P99)</span>
+        <span class="stat-val">{{ throughputP99() }} <small>ms</small></span>
+      </div>
+      <div class="arch-stat-pill">
+        <span class="stat-lbl">CACHE HIT</span>
+        <span class="stat-val success">{{ cacheHitRatio() }} <small>%</small></span>
+      </div>
+    </div>
+
+    <!-- 2D Architecture Topology Canvas -->
+    <div class="arch-canvas-wrap">
+      <canvas #archCanvas class="arch-canvas"></canvas>
+      <div class="arch-status-overlay font-mono">{{ activeStatus() }}</div>
+    </div>
+
+    <!-- Rolling Telemetry Event Log Feed -->
+    <div class="arch-log-console font-mono">
+      @for (log of logs(); track log) {
+        <div class="arch-log-item" [class.warning]="log.includes('[WARM]') || log.includes('[ALERT]')" [class.success]="log.includes('[OK]')">
+          {{ log }}
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- COLUMN 2: Senior Fullstack System CLI & Microservices Control -->
+  <div class="system-terminal-card">
+    <!-- Cyber Corner Brackets -->
+    <div class="corner-bracket t-l"></div>
+    <div class="corner-bracket t-r"></div>
+    <div class="corner-bracket b-l"></div>
+    <div class="corner-bracket b-r"></div>
+
+    <div class="arch-header">
+      <div class="arch-title-wrap">
+        <span class="arch-tag">MICROSERVICES HEALTH & CLI PLAYGROUND</span>
+        <h3 class="arch-heading">Cluster Telemetry Deck</h3>
+      </div>
+    </div>
+
+    <!-- Microservices Status List -->
+    <div class="microservices-status-list font-mono">
+      @for (svc of services(); track svc.name) {
+        <div class="svc-row">
+          <div class="svc-name-col">
+            <span class="svc-led-dot" [class.warning]="svc.status === 'DEGRADED' || svc.status === 'HIGH LOAD'" [class.failover]="svc.status === 'FAILOVER'"></span>
+            <span class="svc-name">{{ svc.name }}</span>
+            <span class="svc-tech font-sans">{{ svc.tech }}</span>
+          </div>
+          <div class="svc-metrics-col">
+            <span class="svc-latency">{{ svc.latency }}ms</span>
+            <span class="svc-badge" [class.warning]="svc.status === 'DEGRADED' || svc.status === 'HIGH LOAD'" [class.failover]="svc.status === 'FAILOVER'">{{ svc.status }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Interactive Terminal Command Prompt -->
+    <div class="cli-terminal-wrap font-mono">
+      <div class="cli-output-window">
+        @for (line of cliHistory(); track line) {
+          <div class="cli-line" [class.cmd]="line.startsWith('$')" [class.success]="line.includes('[OK]')" [class.warn]="line.includes('[WARN]')">
+            {{ line }}
+          </div>
+        }
+      </div>
+
+      <!-- Quick Command Buttons -->
+      <div class="cli-quick-btn-group">
+        <button class="cli-btn" (click)="execCommand('status')">$ status</button>
+        <button class="cli-btn" (click)="execCommand('benchmark')">$ benchmark</button>
+        <button class="cli-btn" (click)="execCommand('services')">$ services</button>
+        <button class="cli-btn" (click)="execCommand('stack')">$ stack</button>
+        <button class="cli-btn" (click)="execCommand('clear')">$ clear</button>
+      </div>
+
+      <!-- Command Input -->
+      <form class="cli-input-form" (submit)="onCliSubmit($event)">
+        <span class="cli-prompt">eshwar@cluster:~$</span>
+        <input type="text" class="cli-input" [(ngModel)]="currentInput" name="cliCmd" placeholder="Type command..." autocomplete="off">
+        <button type="submit" class="cli-submit-btn">EXECUTE</button>
+      </form>
+    </div>
+  </div>
+</div>

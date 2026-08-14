@@ -1,0 +1,316 @@
+.loader-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #030305;
+}
+
+/* Background high-tech grid styling */
+.loader-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(197, 168, 128, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(197, 168, 128, 0.015) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.loader-glow-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(197, 168, 128, 0.04) 0%, rgba(3, 3, 5, 0) 75%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* HUD Scanlines overlay */
+.loader-scanlines {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.02));
+  background-size: 100% 4px, 6px 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* Central Assembly */
+.loader-center-assembly {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  width: 100%;
+  max-width: 360px;
+  will-change: opacity, transform;
+}
+
+/* Hologram container */
+.hologram-container {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hologram-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(197, 168, 128, 0.15));
+}
+
+/* Circle Rotations */
+.circle-outer {
+  transform-origin: center;
+  animation: rotateCW 20s infinite linear;
+}
+
+.circle-middle {
+  transform-origin: center;
+  animation: rotateCCW 15s infinite linear;
+}
+
+.circle-progress {
+  transform: rotate(-90deg);
+  transform-origin: center;
+  filter: drop-shadow(0 0 4px var(--color-accent));
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.monogram-path {
+  filter: drop-shadow(0 0 3px rgba(197, 168, 128, 0.3));
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+/* Central Letter Monogram */
+.monogram-letter {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.25);
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+}
+
+/* HUD Panel */
+.hud-control-panel {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.hud-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 12px;
+  letter-spacing: 1.5px;
+}
+
+.hud-ping {
+  color: var(--color-accent);
+}
+
+/* Scrolling Terminal */
+.hud-terminal {
+  height: 80px;
+  overflow: hidden;
+  font-family: monospace;
+  font-size: 0.68rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  border-top: 1px dashed rgba(255, 255, 255, 0.04);
+  padding-top: 10px;
+  margin-bottom: 14px;
+}
+
+.hud-log-line {
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+.hud-log-line:last-child {
+  color: var(--color-accent);
+  text-shadow: 0 0 6px rgba(197, 168, 128, 0.3);
+}
+
+/* Footer & Progress elements */
+.hud-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 14px;
+}
+
+.progress-bar-wrap {
+  width: 140px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: var(--color-accent);
+  box-shadow: 0 0 6px var(--color-accent);
+}
+
+.percentage-wrap {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #ffffff;
+  display: flex;
+  align-items: baseline;
+  position: relative;
+}
+
+.percentage {
+  letter-spacing: -0.5px;
+  animation: text-glitch 4s infinite linear alternate-reverse;
+}
+
+.percentage-symbol {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  margin-left: 2px;
+}
+
+/* High-tech HUD Scanline Overlay */
+.hud-scanline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(197, 168, 128, 0.03) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Glitch Overlay */
+.hud-glitch-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(197, 168, 128, 0.04);
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: color-dodge;
+}
+
+/* Fullscreen Flash element */
+.loader-flash {
+  position: absolute;
+  inset: 0;
+  background-color: #ffffff;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Text chromatic glitch frames */
+@keyframes text-glitch {
+  0%, 95%, 98%, 100% {
+    text-shadow: none;
+  }
+  96% {
+    text-shadow: 2px -1px 0 #ff0055, -2px 1px 0 #00ffaa;
+  }
+  97% {
+    text-shadow: -2px 2px 0 #ff0055, 3px -1px 0 #00ffaa;
+  }
+}
+
+/* HUD title subtle infinite breathe */
+.hud-title {
+  animation: hud-text-glow 3s infinite ease-in-out;
+}
+
+@keyframes hud-text-glow {
+  0%, 100% {
+    opacity: 0.7;
+    text-shadow: 0 0 2px rgba(255,255,255,0.1);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(197, 168, 128, 0.4);
+  }
+}
+
+/* Ring rotation animations */
+@keyframes rotateCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* Screen laser sweep wipe element */
+.laser-swipe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 8px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(197, 168, 128, 0.85) 30%,
+    #ffffff 50%,
+    rgba(197, 168, 128, 0.85) 70%,
+    transparent
+  );
+  box-shadow: 
+    0 0 15px rgba(197, 168, 128, 0.8),
+    0 0 30px rgba(197, 168, 128, 0.4),
+    0 0 60px rgba(197, 168, 128, 0.2);
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-100%);
+}

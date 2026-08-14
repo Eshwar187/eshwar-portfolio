@@ -1,0 +1,33 @@
+<div class="terminal-card-inner" (click)="focusInput()">
+  <div class="terminal-bar">
+    <div class="terminal-dots">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+    </div>
+    <div class="terminal-title">guest&#64;eshwar.dev: ~/shell</div>
+  </div>
+  
+  <div class="terminal-body" #scrollContainer>
+    <div class="terminal-logs">
+      @for (line of history; track $index) {
+        <div [className]="'log-line ' + line.type">
+          {{ line.text }}
+        </div>
+      }
+    </div>
+    
+    <div class="terminal-input-row">
+      <span class="terminal-prompt">guest&#64;eshwar.dev:~$</span>
+      <input type="text" 
+             #inputField
+             [(ngModel)]="inputValue" 
+             (keydown.enter)="handleCommand()"
+             autocomplete="off"
+             autocorrect="off"
+             autocapitalize="off"
+             spellcheck="false"
+             class="terminal-input" />
+    </div>
+  </div>
+</div>
