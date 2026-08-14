@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy:gh": "ng build --base-href /pt/ && npx gh-pages -d dist/pt/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
