@@ -241,12 +241,12 @@ main {
 
 .hud-sidebar-left {
   left: 0;
-  border-right: 1px solid rgba(197, 168, 128, 0.08);
+  border-right: 1px solid rgba(255, 59, 48, 0.12);
 }
 
 .hud-sidebar-right {
   right: 0;
-  border-left: 1px solid rgba(197, 168, 128, 0.08);
+  border-left: 1px solid rgba(255, 59, 48, 0.12);
 }
 
 /* Sidebar Elements styling */

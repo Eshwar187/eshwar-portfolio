@@ -113,7 +113,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     for (let i = 0; i < this.numParticles; i++) {
       const isGold = Math.random() > 0.35;
       const size = Math.random() * 2.5 + 0.6;
-      const color = isGold ? '197, 168, 128' : '226, 226, 229'; // Gold or Silver
+      const color = isGold ? '255, 59, 48' : '241, 245, 249'; // Crimson Amber or Pure Steel
       this.particles.push({
         x: Math.random() * w,
         y: Math.random() * h,

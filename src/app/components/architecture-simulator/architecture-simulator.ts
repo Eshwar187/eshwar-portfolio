@@ -221,18 +221,17 @@ export class ArchitectureSimulator implements OnInit, OnDestroy, AfterViewInit {
 
       const w = canvas.width / window.devicePixelRatio;
       const h = canvas.height / window.devicePixelRatio;
-      frame++;
 
       // Connections topology definition
       const links: [number, number, string][] = [
-        [0, 1, 'rgba(197, 168, 128, 0.25)'], // Client -> CDN
-        [1, 2, 'rgba(197, 168, 128, 0.25)'], // CDN -> GW
-        [2, 3, 'rgba(88, 166, 255, 0.3)'],   // GW -> Redis
-        [2, 4, 'rgba(197, 168, 128, 0.25)'], // GW -> Services
-        [3, 5, 'rgba(63, 185, 80, 0.25)'],   // Redis -> DB
-        [4, 5, 'rgba(197, 168, 128, 0.25)'], // Services -> DB
-        [4, 6, 'rgba(210, 153, 34, 0.3)'],   // Services -> K8s
-        [5, 6, 'rgba(197, 168, 128, 0.25)']  // DB -> K8s
+        [0, 1, 'rgba(255, 59, 48, 0.3)'], // Client -> CDN
+        [1, 2, 'rgba(255, 59, 48, 0.3)'], // CDN -> GW
+        [2, 3, 'rgba(56, 189, 248, 0.35)'],// GW -> Redis
+        [2, 4, 'rgba(255, 59, 48, 0.3)'], // GW -> Services
+        [3, 5, 'rgba(16, 185, 129, 0.35)'],// Redis -> DB
+        [4, 5, 'rgba(255, 59, 48, 0.3)'], // Services -> DB
+        [4, 6, 'rgba(245, 158, 11, 0.35)'],// Services -> K8s
+        [5, 6, 'rgba(255, 59, 48, 0.3)']  // DB -> K8s
       ];
 
       // Draw connection vectors
@@ -248,8 +247,10 @@ export class ArchitectureSimulator implements OnInit, OnDestroy, AfterViewInit {
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
         ctx.strokeStyle = strokeColor;
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 1.2;
+        ctx.setLineDash([4, 4]);
         ctx.stroke();
+        ctx.setLineDash([]);
       });
 
       // Spawn traffic packets based on active mode
@@ -262,7 +263,7 @@ export class ArchitectureSimulator implements OnInit, OnDestroy, AfterViewInit {
           toNode: linkChoice[1],
           progress: 0,
           speed: 0.015 + Math.random() * 0.015,
-          color: this.activeMode() === 'cache_miss' ? '#ff7b72' : '#c5a880'
+          color: this.activeMode() === 'cache_miss' ? '#ff3b30' : '#ff5252'
         });
       }
 
@@ -281,28 +282,25 @@ export class ArchitectureSimulator implements OnInit, OnDestroy, AfterViewInit {
         const py = (n1.y + (n2.y - n1.y) * p.progress) * h;
 
         ctx.beginPath();
-        ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+        ctx.arc(px, py, 3.5, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
+        ctx.shadowColor = p.color;
+        ctx.shadowBlur = 10;
         ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(px, py, 6, 0, Math.PI * 2);
-        ctx.fillStyle = `${p.color}33`;
-        ctx.fill();
+        ctx.shadowBlur = 0;
       }
 
-      // Render Nodes
-      this.nodes.forEach(node => {
+      // Draw nodes
+      this.nodes.forEach((node) => {
         const nx = node.x * w;
         const ny = node.y * h;
 
-        // Node halo
         ctx.beginPath();
         ctx.arc(nx, ny, 15, 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(13, 13, 16, 0.85)';
         ctx.fill();
-        ctx.strokeStyle = 'rgba(197, 168, 128, 0.35)';
-        ctx.lineWidth = 1;
+        ctx.strokeStyle = 'rgba(255, 59, 48, 0.45)';
+        ctx.lineWidth = 1.2;
         ctx.stroke();
 
         // Node label
@@ -311,7 +309,7 @@ export class ArchitectureSimulator implements OnInit, OnDestroy, AfterViewInit {
         ctx.textAlign = 'center';
         ctx.fillText(node.name, nx, ny - 20);
 
-        ctx.fillStyle = 'rgba(197, 168, 128, 0.7)';
+        ctx.fillStyle = 'rgba(255, 59, 48, 0.8)';
         ctx.font = '7px monospace';
         ctx.fillText(node.sub, nx, ny + 24);
       });
